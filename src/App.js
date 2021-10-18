@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Item from "./components/Item";
 
 function App() {
+  const [newItem, setnewItem] = useState("");
+  const [allItems, setAllItems] = useState([]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <p className="flash"></p>
+      <h1>Grocery Bud</h1>
+      <form>
+        <input
+          type="text"
+          name="newItem"
+          placeholder="e.g eggs"
+          onChange={(e) => {
+            setnewItem(e.target.value);
+          }}
+        />
+        <input type="submit" value="Submit" name="submit" />
+      </form>
+      <div className="all-items">
+        {allItems.map(() => {
+          return <Item />;
+        })}
+      </div>
+      <button className="clr-btn">Clear Items</button>
+    </main>
   );
 }
 
