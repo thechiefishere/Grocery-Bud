@@ -1,0 +1,93 @@
+$primary-color: rgb(84, 188, 196);
+$background-color: rgb(245, 248, 248);
+$secondary-color: rgb(152, 240, 152);
+
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: $background-color;
+}
+main {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 20vh;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #ddd;
+  text-align: center;
+  padding-top: 10px;
+  .flash {
+    background-color: $secondary-color;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 5px;
+    margin-bottom: 30px;
+  }
+  .title {
+    text-align: center;
+    margin-bottom: 20px;
+    // background-color: red;
+  }
+  form {
+    .text {
+      padding: 5px 10px;
+      border-radius: 5px;
+      //   margin-right: 2px;
+      background-color: $background-color;
+      border: none;
+    }
+    .submit {
+      padding: 5px 15px;
+      border-radius: 5px;
+      background-color: $primary-color;
+    }
+  }
+  .all-items {
+    margin-top: 20px;
+
+    article {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 40px;
+      margin-bottom: 10px;
+      h4 {
+        margin: 2px 0;
+      }
+      .icons {
+        align-self: center;
+        .edit-icon {
+          color: $secondary-color;
+        }
+        .delete-icon {
+          color: red;
+        }
+      }
+    }
+  }
+  .clr-btn {
+    display: inline-block;
+    color: red;
+    margin: 20px 0px;
+    border: none;
+    background-color: #fff;
+  }
+}
+
+@media (min-width: 650px) {
+  main {
+    width: 70%;
+  }
+}
+
+@media (min-width: 950px) {
+  main {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1150px) {
+  main {
+    width: 40%;
+  }
+}

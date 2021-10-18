@@ -57,7 +57,7 @@ function App() {
   return (
     <main>
       <p className="flash">{flashText}</p>
-      <h1>Grocery Bud</h1>
+      <h1 className="title">Grocery Bud</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -67,11 +67,13 @@ function App() {
             setNewItem(e.target.value);
           }}
           value={newItem}
+          className="text"
         />
         <input
           type="submit"
           value={editing ? "Edit" : "Submit"}
           name="submit"
+          className="submit"
         />
       </form>
       <div className="all-items">

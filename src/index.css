@@ -1,13 +1,86 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #f5f8f8;
 }
+
+main {
+  width: 92%;
+  margin: 0 auto;
+  margin-top: 20vh;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px #ddd;
+  text-align: center;
+  padding-top: 10px;
+}
+main .flash {
+  background-color: #98f098;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+main .title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+main form .text {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #f5f8f8;
+  border: none;
+}
+main form .submit {
+  padding: 5px 15px;
+  border-radius: 5px;
+  background-color: #54bcc4;
+}
+main .all-items {
+  margin-top: 20px;
+}
+main .all-items article {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  margin-bottom: 10px;
+}
+main .all-items article h4 {
+  margin: 2px 0;
+}
+main .all-items article .icons {
+  align-self: center;
+}
+main .all-items article .icons .edit-icon {
+  color: #98f098;
+}
+main .all-items article .icons .delete-icon {
+  color: red;
+}
+main .clr-btn {
+  display: inline-block;
+  color: red;
+  margin: 20px 0px;
+  border: none;
+  background-color: #fff;
+}
+
+@media (min-width: 650px) {
+  main {
+    width: 70%;
+  }
+}
+@media (min-width: 950px) {
+  main {
+    width: 60%;
+  }
+}
+@media (min-width: 1150px) {
+  main {
+    width: 40%;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

@@ -5,8 +5,10 @@ const Item = ({ item, id, deleteItem, editItem }) => {
   return (
     <article>
       <h4>{item}</h4>
-      <FaEdit onClick={() => editItem(id, item)} />
-      <MdDelete onClick={() => deleteItem(id)} />
+      <div className="icons">
+        <FaEdit className="edit-icon" onClick={() => editItem(id, item)} />
+        <MdDelete className="delete-icon" onClick={() => deleteItem(id)} />
+      </div>
     </article>
   );
 };
