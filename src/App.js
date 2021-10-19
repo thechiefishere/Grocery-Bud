@@ -7,12 +7,17 @@ function App() {
   const [flashText, setFlashText] = useState("");
   const [editing, setEditing] = useState(false);
   const [idToEdit, setIdToEdit] = useState(-1);
+  const [addedNewItem, setAddedNewItem] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setFlashText("");
     }, 1000);
   }, [flashText]);
+
+  useEffect(() => {
+    if (addedNewItem) setNewItem("");
+  }, [addedNewItem]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,26 +31,32 @@ function App() {
     }
 
     setNewItem("");
+    setAddedNewItem(true);
   };
 
   const deleteItem = (id) => {
-    const remainingitems = allItems.filter((item, index) => {
-      return index != id;
+    const remainingitems = allItems.filter((item) => {
+      return item.id != id;
     });
 
     setAllItems(remainingitems);
     setFlashText("Item Removed");
   };
 
-  const editItem = (id, item) => {
+  const editItem = (item) => {
     setNewItem(item);
     setEditing(true);
-    setIdToEdit(id);
+    setIdToEdit(item.id);
   };
 
   const handleEdit = () => {
     if (newItem != "" && idToEdit != -1) {
-      allItems[idToEdit] = newItem;
+      // allItems[idToEdit] = newItem;
+      allItems.find((item) => {
+        if (item.id === idToEdit) {
+          item = { ...item, value: newItem.value };
+        }
+      });
     }
 
     setFlashText("Value Changed");
@@ -64,9 +75,12 @@ function App() {
           name="newItem"
           placeholder="e.g eggs"
           onChange={(e) => {
-            setNewItem(e.target.value);
+            setNewItem({
+              id: new Date().getTime().toString,
+              value: e.target.value,
+            });
           }}
-          value={newItem}
+          value={newItem.value}
           className="text"
         />
         <input
@@ -89,15 +103,17 @@ function App() {
           );
         })}
       </div>
-      <button
-        className="clr-btn"
-        onClick={() => {
-          setAllItems([]);
-          setFlashText("Empty List");
-        }}
-      >
-        Clear Items
-      </button>
+      {allItems.length > 0 && (
+        <button
+          className="clr-btn"
+          onClick={() => {
+            setAllItems([]);
+            setFlashText("Empty List");
+          }}
+        >
+          Clear Items
+        </button>
+      )}
     </main>
   );
 }
